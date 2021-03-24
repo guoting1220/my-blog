@@ -1,0 +1,30 @@
+.PostDetail {
+  margin: 2rem 0;
+  
+  text-align: left;
+}
+
+.PostDetail-body {
+  margin-top: 1rem;
+}
+
+.PostDetail-title {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.PostDetail-btns i {
+  /* display: inline-block;   */
+  margin: 0 0.3rem;
+  cursor: pointer;
+}
+
+.editBtn {
+  color: #368EDA;
+}
+.deleteBtn {
+  color:#D85D50
+}
+
+

@@ -1,0 +1,13 @@
+.CommentForm {
+  width: 100%;
+} 
+
+.CommentForm input {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.CommentForm button {
+  background-color: #368EDA;
+  margin-top: 0.3rem;
+}

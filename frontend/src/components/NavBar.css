@@ -1,0 +1,21 @@
+.Navbar {
+  text-align: left;
+  padding: 2rem 10%;
+  background-color: #DBE2E8;
+}
+
+.Navbar nav {
+  margin-top: 1rem;
+}
+
+.Navbar p {
+  margin: 0.6rem 0;
+}
+
+.Navbar nav a{
+  margin-right: 1.5rem;
+  text-decoration: none;
+  color:#528BBC;
+  font-weight: bold;  
+}
+

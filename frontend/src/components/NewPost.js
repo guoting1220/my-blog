@@ -1,16 +1,25 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 import PostForm from './PostForm';
+import { sendPostToAPI } from '../actions/postsActions';
+
 
 const NewPost = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
-  const reDirect = () => {
+  const cancel = () => {
+    history.push("/");
+  }
+
+  const save = async ({ title, description, body }) => {
+    await dispatch(sendPostToAPI(title, description, body));
     history.push("/");
   }
 
   return (
-    <PostForm reDirect={reDirect} />
+    <PostForm save={save} cancel={cancel} />
   )
 }
 

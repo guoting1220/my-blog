@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { v4 as uuid } from 'uuid';
-import { addComment } from '../actions/postsActions';
+import { sendCommentToAPI } from '../actions/postsActions';
 import './CommentForm.css'; 
 
 const CommentForm = ({ postId}) => {
-  const [commentContent, setCommentContent] = useState("");
+  const [commentText, setCommentText] = useState("");
 
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
-    setCommentContent(e.target.value);
+    setCommentText(e.target.value);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newCommentId = uuid();
-    const newCommentData = {
-      [newCommentId]: commentContent
-    }
-    dispatch(addComment(postId, newCommentData));
-    setCommentContent("");
+    await dispatch(sendCommentToAPI(postId, commentText));
+    setCommentText("");
   }
 
   return (
@@ -29,7 +24,7 @@ const CommentForm = ({ postId}) => {
         <input
           type="text"
           name="commentContent"
-          value={commentContent}
+          value={commentText}
           placeholder="New Comment"
           onChange={handleChange}
         ></input>

@@ -1,21 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
-import { deletePost } from '../actions/postsActions';
-import { deleteTitle } from '../actions/titlesActions';
+import { deletePostFromAPI } from '../actions/postsActions';
 import './PostDetail.css';
 
 
 const PostDetail = ({post, id, toggleEdit}) => {
   const dispatch = useDispatch();
-  const removePost = () => dispatch(deletePost(id));
-  const removeTitle = () => dispatch(deleteTitle(id));
-
   const history = useHistory();
 
-  const remove = () => {
-    removePost();
-    removeTitle();
+  const remove = async () => {
+    await dispatch(deletePostFromAPI(id));
     history.push("/");
   }
 

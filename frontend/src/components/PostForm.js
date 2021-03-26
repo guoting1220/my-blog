@@ -3,14 +3,11 @@ import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { savePost } from '../actions/postsActions';
 import { saveTitle } from '../actions/titlesActions';
+import { sendPostToAPI} from '../actions/postsActions';
 import './PostForm.css';
 
-const PostForm = ({ initialFormData, id = null, reDirect }) => {
-  const [formData, setFormData] = useState({...initialFormData});
-  const dispatch = useDispatch();
-  const addOrUpdatePost = (post) => dispatch(savePost(post));
-  const addOrUpdateTitle = (title) => dispatch(saveTitle(title));
-
+const PostForm = ({ initialFormData, save, cancel }) => {
+  const [formData, setFormData] = useState({ ...initialFormData });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,18 +19,7 @@ const PostForm = ({ initialFormData, id = null, reDirect }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    const newPostData = {
-      ...formData,
-      id: id || uuid()
-    }
-
-    const { body, ...newTitleData } = newPostData;
-
-    addOrUpdatePost(newPostData);
-    addOrUpdateTitle(newTitleData);
-    reDirect();
-    // setFormData(INITIAL_STATE); 
+    save(formData);
   }
 
   return (
@@ -72,7 +58,7 @@ const PostForm = ({ initialFormData, id = null, reDirect }) => {
           </textarea>
         </div>
         <button id="submitBtn" type="submit">Save</button>
-        <button id="cancelBtn" onClick={reDirect}>Cancel</button>
+        <button id="cancelBtn" onClick={cancel}>Cancel</button>
       </form>
     </div>
   )

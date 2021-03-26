@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Title from './Title';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './TitleList.css';
+import {fetchTitlesFromAPI} from '../actions/titlesActions';
 
 
 const TitleList = () => {
   const titles = useSelector(store => store.titles);
+  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(true);
+
+
+  useEffect(() => {
+    const fetchTitles = async () => {
+      await dispatch(fetchTitlesFromAPI());
+      setIsLoading(false);
+    }
+
+    if (isLoading) fetchTitles();
+    
+  }, [dispatch, isLoading]);
+
+  if (isLoading) return <b>Loading ..</b>
 
   return (
     <div className="TitleList">
-      {Object.keys(titles).map(id =>
+      {titles.map(title =>
         <Title
-          key={id}
-          id={id}
-          title={titles[id].title}
-          description={titles[id].description}
+          key={title.id}
+          id={title.id}
+          title={title.title}
+          description={title.description}
         />
       )}
     </div>

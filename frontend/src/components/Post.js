@@ -6,7 +6,7 @@ import './Post.css';
 import PostForm from './PostForm';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
-import {getPostFromAPI, updatePostInAPI} from '../actions/postsActions';
+import { getPostFromAPI, updatePostInAPI } from '../actions/postsActions';
 
 const Post = () => {
   const posts = useSelector(store => store.posts);
@@ -19,10 +19,17 @@ const Post = () => {
 
   /* if the post is not in store, fetch it from API */
   useEffect(() => {
-    if (!post) {
-      dispatch(getPostFromAPI(postId))
-    }
-  }, [dispatch, post, postId]);
+    const getPost = async () => {
+      await dispatch(getPostFromAPI(postId));
+    };
+    if (!post) getPost();
+  },
+    // [dispatch, post, postId]
+
+    // if include "post" in the dependencies, when delete a post, the post changes, will run the function inside useEffect again, therefore dispatch the FETCH_POST, and return undefined:"", error
+
+    [dispatch, postId]
+  );
 
   const toggleEdit = () => {
     setIsEditing(!isEditing);
@@ -37,17 +44,18 @@ const Post = () => {
     history.push(`/${postId}`);
     setIsEditing(false);
   }
-  
 
-  if(!post) return <p>No post yet!</p>
+
+  if (!post) return <p>No post yet!</p>
 
   return (
     <div className="Post">
       {isEditing
         ? <PostForm
-          initialFormData={post}          
+          initialFormData={post}
           save={update}
           cancel={cancel}
+          title="Edit Post"
         />
         : <PostDetail
           post={post}

@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Title from './Title';
 import { useDispatch, useSelector } from 'react-redux';
 import './TitleList.css';
-import {fetchTitlesFromAPI} from '../actions/titlesActions';
+import { fetchTitlesFromAPI } from '../actions/titlesActions';
+
 
 
 const TitleList = () => {
@@ -17,9 +18,12 @@ const TitleList = () => {
       setIsLoading(false);
     }
 
-    if (isLoading) fetchTitles();
-    
-  }, [dispatch, isLoading]);
+    // this case: FETCH_TITLES will run 2 times when loading the page  
+    // if (isLoading) fetchTitles();
+
+    fetchTitles();
+  }, []);
+
 
   if (isLoading) return <b>Loading ..</b>
 
@@ -31,6 +35,7 @@ const TitleList = () => {
           id={title.id}
           title={title.title}
           description={title.description}
+          votes={title.votes}
         />
       )}
     </div>

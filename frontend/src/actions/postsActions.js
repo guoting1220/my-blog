@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_POST, ADD_POST, UPDATE_POST, DELETE_POST, ADD_COMMENT, DELETE_COMMENT } from './actionTypes'
+import { FETCH_POST, ADD_POST, UPDATE_POST, DELETE_POST, ADD_COMMENT, DELETE_COMMENT, VOTE } from './actionTypes'
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000/api/posts";
 
@@ -114,6 +114,24 @@ const deleteComment = (commentId) => (
   {
     type: DELETE_COMMENT,
     commentId
+  }
+);
+
+
+/* vote for the post */
+/* increase the votes in API, and update the state in store */
+export const sendVoteToAPI = (postId, direction) => (
+  async (dispatch) => {
+    const response = await axios.post(`${API_URL}/${postId}/vote/${direction}`);
+    return dispatch(vote(postId, response.data.votes));
+  }
+)
+
+const vote = (postId, votes) => (
+  {
+    type: VOTE,
+    postId: postId,
+    votes: votes,
   }
 );
 

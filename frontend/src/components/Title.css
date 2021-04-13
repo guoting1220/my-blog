@@ -5,7 +5,6 @@
   border-radius: 6px;
   text-align: left;
   margin: 1rem 5% 0 0;
-  padding: 0.5rem 1rem;
 }
 
 .Title a {
@@ -14,10 +13,19 @@
 
 .Title-title {
   color: #3875A9;
+  padding: 1rem;
 }
 
 .Title p {
   display: block;
   color: black;
-  margin-top: 0.8rem;
+  /* margin-top: 0.8rem; */
+  padding-left: 1rem;
+}
+
+.Title-votes {
+  background-color: #F1EEEC;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: right;
 }

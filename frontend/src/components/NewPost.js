@@ -19,7 +19,7 @@ const NewPost = () => {
   }
 
   return (
-    <PostForm save={save} cancel={cancel} />
+    <PostForm save={save} cancel={cancel} title="New Post"/>
   )
 }
 

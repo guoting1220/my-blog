@@ -1,5 +1,4 @@
-import { FETCH_POST, ADD_POST, UPDATE_POST, DELETE_POST, ADD_COMMENT, DELETE_COMMENT } from '../actions/actionTypes'
-
+import { FETCH_POST, ADD_POST, UPDATE_POST, DELETE_POST, ADD_COMMENT, DELETE_COMMENT, VOTE } from '../actions/actionTypes'
 
 
 export default function postsReducer(state = {}, action) {
@@ -98,14 +97,20 @@ export default function postsReducer(state = {}, action) {
         );
       });  
 
-      // Object.keys(state).forEach(id => {
-      //   postsCopy[id] = { ...state[id] };
-      //   postsCopy[id].comments = [...postsCopy[id].comments].map(
-      //     comment => ({ ...comment })
-      //   );
-      // });
+      return postsCopy;
+    }
 
-      // postsCopy[action.postId].comments= postsCopy[action.postId].comments.filter(comment => comment.id !== action.commentId);
+    case VOTE: {
+      const postsCopy = {};
+
+      Object.keys(state).forEach(id => {
+        postsCopy[id] = { ...state[id] };
+        postsCopy[id].comments = [...postsCopy[id].comments].map(
+          comment => ({ ...comment })
+        );
+      });
+
+      postsCopy[action.postId].votes = action.votes;
 
       return postsCopy;
     }

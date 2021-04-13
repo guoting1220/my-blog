@@ -17,6 +17,10 @@
   border-radius: 3px;
 } */
 
+.PostForm-title{
+  text-align: center;
+}
+
 .PostForm textarea {
   height: 6rem;
 }

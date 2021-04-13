@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { v4 as uuid } from 'uuid';
-import { savePost } from '../actions/postsActions';
-import { saveTitle } from '../actions/titlesActions';
-import { sendPostToAPI} from '../actions/postsActions';
 import './PostForm.css';
 
-const PostForm = ({ initialFormData, save, cancel }) => {
+const PostForm = ({ save, cancel, title, initialFormData={} }) => {
   const [formData, setFormData] = useState({ ...initialFormData });
+  // const [formData, setFormData] = useState({
+  //   title: initialFormData.title,
+  //   description: initialFormData.description,
+  //   body: initialFormData.body
+  // });
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,9 +23,10 @@ const PostForm = ({ initialFormData, save, cancel }) => {
     save(formData);
   }
 
+  
   return (
     <div className="PostForm">
-      {/* <h2>New Post</h2> */}
+      <h2 className="PostForm-title">{title}</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title</label>

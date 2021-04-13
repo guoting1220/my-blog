@@ -1,0 +1,18 @@
+.add-vote {
+  color: green;
+}
+
+.cut-vote {
+  color: red;
+}
+
+.Votes i {
+  margin: 0.4rem;
+  cursor: pointer;
+}
+
+.vote-count {
+  font-size: smaller;
+}
+
+

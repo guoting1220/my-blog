@@ -1,7 +1,14 @@
 .Navbar {
   text-align: left;
   padding: 2rem 10%;
-  background-color: #DBE2E8;
+    background-image: url("https://png2.cleanpng.com/sh/4ea41210c89b19ea1d074ee7fc677e86/L0KzQYi4UsA4N2RqS5GAYUK8Q7XqhvJibpU4TJC9N0O1Qom9UME2OWM7TaQ7M0m6RoaCTwBvbz==/5a293dcfbafd34.4732286015126522397659.png");
+
+  background-color: #f0ebe5;
+  background-size: 8rem;
+  background-repeat: no-repeat;
+  background-position: left;
+
+ 
 }
 
 .Navbar nav {

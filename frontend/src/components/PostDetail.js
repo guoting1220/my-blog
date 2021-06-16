@@ -19,7 +19,9 @@ const PostDetail = ({ post, id, toggleEdit }) => {
     <div className="PostDetail">
       <div>
         <h2>{post.title}</h2>
+        <br></br>
         <p>{post.description}</p>
+        <br></br>
         <div>{post.body}</div>
       </div>
 

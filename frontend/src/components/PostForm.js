@@ -3,12 +3,6 @@ import './PostForm.css';
 
 const PostForm = ({ save, cancel, title, initialFormData={} }) => {
   const [formData, setFormData] = useState({ ...initialFormData });
-  // const [formData, setFormData] = useState({
-  //   title: initialFormData.title,
-  //   description: initialFormData.description,
-  //   body: initialFormData.body
-  // });
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +17,7 @@ const PostForm = ({ save, cancel, title, initialFormData={} }) => {
     save(formData);
   }
 
+
   
   return (
     <div className="PostForm">
@@ -33,7 +28,7 @@ const PostForm = ({ save, cancel, title, initialFormData={} }) => {
           <input
             type="text"
             name="title"
-            value={FormData.title}
+            value={formData.title}
             onChange={handleChange}
           >
           </input>
@@ -43,7 +38,7 @@ const PostForm = ({ save, cancel, title, initialFormData={} }) => {
           <input
             type="text"
             name="description"
-            value={FormData.description}
+            value={formData.description}
             onChange={handleChange}
           >
           </input>
@@ -53,7 +48,7 @@ const PostForm = ({ save, cancel, title, initialFormData={} }) => {
           <textarea
             type="text"
             name="body"
-            value={FormData.body}
+            value={formData.body}
             rows={10}
             onChange={handleChange}
           >
@@ -71,3 +66,5 @@ PostForm.defaultProps = {
 };
 
 export default PostForm;
+
+

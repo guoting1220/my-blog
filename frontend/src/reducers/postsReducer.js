@@ -1,4 +1,4 @@
-import { FETCH_POST, ADD_POST, UPDATE_POST, DELETE_POST, ADD_COMMENT, DELETE_COMMENT, VOTE } from '../actions/actionTypes'
+import { FETCH_POST, ADD_POST, UPDATE_POST, DELETE_POST, ADD_COMMENT, DELETE_COMMENT, VOTE } from '../actions/actionTypes';
 
 
 export default function postsReducer(state = {}, action) {
@@ -190,3 +190,6 @@ export default function postsReducer(state = {}, action) {
 //       return state;
 //   }
 // }
+
+
+

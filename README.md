@@ -10,7 +10,10 @@ https://react-myblog.surge.sh/
 HTML, CSS, Javascript, React.js, Redux
 
 ##### backend: 
-Express, Node.js, SQL, PostgreSQL
+Express, Node.js
+
+##### database: 
+SQL, PostgreSQL
 
 ### Installation and Setup Instructions
 ##### backend:

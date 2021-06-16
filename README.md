@@ -1,20 +1,37 @@
-1. cd to "backend", install the dependencies. You can run:
-   ### `npm install`
+# MyBlog
+MyBlog is a simple web application for user to make a blog of life.
 
-   create the database and tables, populate the tables with sample data. You can run:
-   ### `psql -f data.sql (window)`
-   ### `psql < data.sql (mac)`
+### Deployed App Link
+https://react-myblog.surge.sh/
 
-   to start the server, you can run:
-   ### `npm start`
+### Tech Stack 
 
+##### frontend: 
+HTML, CSS, Javascript, React.js, Redux
 
-2. cd to "frontend", install the dependencies. You can run:
-   ### `npm install`
+##### backend: 
+Express, Node.js, SQL, PostgreSQL
 
-  to run the app in the development mode. You can run: 
-   ### `npm start`
+### Installation and Setup Instructions
+##### backend:
+cd to "backend", install the dependencies. You can run:
+ `npm install`
 
-3. Open `http://localhost:3000` to view it in the browser.
+create the database and tables, populate the tables with sample data. You can run:
+ `psql -f data.sql` (window)
+ `psql < data.sql` (mac)
+
+to start the server, you can run:
+ `npm start`
+
+##### frontend:
+cd to "frontend", install the dependencies. You can run:
+`npm install`
+
+to run the app in the development mode. You can run: 
+`npm start`
+
+##### To visit app on localhost:  
+Open `http://localhost:3000` to view it in the browser.
 
    
